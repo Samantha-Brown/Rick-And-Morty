@@ -8,7 +8,7 @@
   font-style: italic;
   font-weight: bold;
   font-size: 70px;
-  top: 8%;
+  top: 10%;
   display: flex;
   justify-content: center;
 }
@@ -45,13 +45,14 @@ body {
 .app {
   z-index: 1;
   background-color: #273034;
-  width: 450px;
-  min-height: 200px;
+  width: 650px;
+  min-height: 300px;
   height: min-content;
-  border-radius: 15px;
-  padding: 29px;
+  /* border-radius: 15px; */
+  padding: 39px;
   margin-top: 15%;
   margin-bottom: 15%;
+  margin-left: 250px;
   box-shadow: 10px 10px 42px 0px rgba(0, 0, 0, 0.75);
   display: flex;
   justify-content: space-evenly;
@@ -149,7 +150,7 @@ button {
   justify-content: center;
   text-align: justify;
   text-align-last: center;
-  font-size: 18px;
+  font-size: 23px;
   font-weight: lighter;
   margin-top: 5%;
   margin-bottom: 5%;

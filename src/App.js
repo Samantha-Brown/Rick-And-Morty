@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { questions } from './data/Questions.js';
+import { fetchData } from './apiCalls';
+import { Route, Link } from 'react-router-dom';
+import Error from './Error';
+
+
 
 export default function App() {
 	const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -25,7 +30,7 @@ export default function App() {
 
 		switch (Math.max(totalMorty, totalRick, totalJerry, totalSummer)) {
 			case totalMorty: setCharacter("Morty")
-				break;
+			 	break;
 			case totalRick: setCharacter("Rick")
 				break;
 			case totalJerry: setCharacter("Jerry")
@@ -95,7 +100,7 @@ export default function App() {
 		<>
 				<div className='intro-part'>
 					<div className='intro-text'>
-						You might think you know your cat well but do you really? Take this quiz to find out!
+						You might think you know your cat well but do you really? Take this quiz to find out which character your cat could replace on the TV show Rick & Morty!
 					</div>
 					<button className='start-button button-loader' onClick={() => setShowQuiz(true)}>Start</button>
 				</div>

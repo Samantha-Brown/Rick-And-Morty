@@ -2,7 +2,7 @@ export const questions = [
     {
         questionText: 'What is your cat\'s favorite toy?',
         options: [
-            { optionText: 'Laser', Morty: 2, Rick: 1, Jerry: 2, Summer: 1 },
+            { optionText: 'Laser', Morty: 20, Rick: 110, Jerry: 45, Summer: 15 },
             { optionText: 'Christmas Lights', Morty: 1, Rick: 1, Jerry: 3, Summer: 1 },
             { optionText: 'Dice', Morty: 3, Rick: 3, Jerry: 1, Summer: 0 },
             { optionText: 'Hair Ties', Morty: 1, Rick: 2, Jerry: 1, Summer: 3 },
