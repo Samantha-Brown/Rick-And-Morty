@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { questions } from './data/Questions.js';
-import { fetchData } from './apiCalls';
+// import { fetchData } from './apiCalls';
 import { Route, Link } from 'react-router-dom';
-import Error from './Error';
+// import Error from './Error';
 
 
 
@@ -23,23 +23,23 @@ export default function App() {
 
 	//Sorting function
 	const answerHandler = (morty, rick, jerry, summer) => {
-		setMorty(totalMorty + morty);
-		setRick(totalRick + rick);
-		setJerry(totalJerry + jerry);
-		setSummer(totalSummer + summer);
+    		setMorty(totalMorty + morty);
+    		setRick(totalRick + rick);
+    		setJerry(totalJerry + jerry);
+    		setSummer(totalSummer + summer);
 
 		switch (Math.max(totalMorty, totalRick, totalJerry, totalSummer)) {
-			case totalMorty: setCharacter("Morty")
-			 	break;
-			case totalRick: setCharacter("Rick")
-				break;
-			case totalJerry: setCharacter("Jerry")
-				break;
-			case totalSummer: setCharacter("Summer")
-				break;
-			default:
-				break;
-		};
+    			case totalMorty: setCharacter("Morty")
+    			 	break;
+    			case totalRick: setCharacter("Rick")
+    				break;
+    			case totalJerry: setCharacter("Jerry")
+    				break;
+    			case totalSummer: setCharacter("Summer")
+    				break;
+    			default:
+    				break;
+    		};
 
 		const nextQuestion = currentQuestion + 1;
 		if (nextQuestion < questions.length) {
@@ -76,6 +76,7 @@ export default function App() {
 					Your cat is
 					<br/>
 					<p className='character'>{character}</p>
+          <button className='return' onClick={() => setShowQuiz(true)}>Take Quiz Again!</button>
 				</div>
 
 			) : (

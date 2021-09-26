@@ -75,7 +75,7 @@ body {
 
 .character {
   display: flex;
-  margin: auto;
+  margin: 40px 35px 45px;
   margin-top: 20%;
   text-align: center;
   transition: 3;
@@ -177,4 +177,21 @@ button {
 button:hover {
   background-color: #814b4a;
   transition: 0.5s;
+}
+
+.return {
+  width: 200px;
+  font-size: 24px;
+  font-family: serif;
+  align-self: center;
+  color: #ffffff;
+  background-color: transparent;
+  border-radius: 7px;
+  display: flex;
+  padding: 10px;
+  margin-bottom: 5px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #927c6c;
+  cursor: pointer;
 }
