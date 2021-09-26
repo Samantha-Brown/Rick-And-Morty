@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { questions } from './data/Questions.js';
-// import { fetchData } from './apiCalls';
+import { fetchData } from './apiCalls';
 import { Route, Link } from 'react-router-dom';
 // import Error from './Error';
 
@@ -25,10 +25,11 @@ export default function App() {
 	const answerHandler = (morty, rick, jerry, summer) => {
     		setMorty(totalMorty + morty);
     		setRick(totalRick + rick);
+        console.log(totalRick)
     		setJerry(totalJerry + jerry);
     		setSummer(totalSummer + summer);
 
-		switch (Math.max(totalMorty, totalRick, totalJerry, totalSummer)) {
+		switch(Math.max(totalMorty, totalRick, totalJerry, totalSummer)) {
     			case totalMorty: setCharacter("Morty")
     			 	break;
     			case totalRick: setCharacter("Rick")
@@ -76,7 +77,7 @@ export default function App() {
 					Your cat is
 					<br/>
 					<p className='character'>{character}</p>
-          <button className='return' onClick={() => setShowQuiz(true)}>Take Quiz Again!</button>
+          <button className='return' onClick={() => setShowQuiz(false)}>Take Quiz Again!</button>
 				</div>
 
 			) : (
@@ -90,7 +91,7 @@ export default function App() {
 					</div>
 					<div className='answer-section'>
 						{questions[currentQuestion].options.map((option) => (
-							<button onClick={() => {answerHandler(option.morty, option.rick, option.jerry, option.summer);}}>{option.optionText}</button>
+							<button onClick={() => {answerHandler(option.Morty, option.Rick, option.Jerry, option.Summer);}}>{option.optionText}</button>
 						))}
 					</div>
 				</div>

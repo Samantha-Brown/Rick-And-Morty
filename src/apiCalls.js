@@ -10,4 +10,5 @@ export const fetchData = async () => {
 
   return character
 }
-fetchData();
+
+ fetchData();
