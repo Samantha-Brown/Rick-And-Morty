@@ -6,6 +6,7 @@ import './HomeQuiz.css'
 
 const HomeQuiz = ( {currentQuestion, answerHandler, showCharacter }) => {
   return(
+    <div classname='app'>
     <div className='part-two'>
           {currentQuestion < 4 && <div>
 					<div className='question-section'>
@@ -21,6 +22,7 @@ const HomeQuiz = ( {currentQuestion, answerHandler, showCharacter }) => {
 					</div> </div> }
           {currentQuestion === 4 && <Redirect to='/Results'/>}
 				</div>
+        </div>
 
   )
 }

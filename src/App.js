@@ -4,7 +4,7 @@ import { fetchData } from './apiCalls';
 import { Route, Link } from 'react-router-dom';
 import Results from './Results';
 import HomeQuiz from './HomeQuiz';
-import { characterInfo } from './util';
+import { getCharacterInfo } from './util';
 // import Error from './Error';
 
 
@@ -21,8 +21,18 @@ export default function App() {
 	//Final result setter
 	const [character, setCharacter] = useState("Beth");
 
-	const [showQuiz, setShowQuiz] = useState(false);
+	//const [showQuiz, setShowQuiz] = useState(false);
 	const [showCharacter, setShowCharacter] = useState(false);
+  const [banner, setBanner] = useState('')
+  const [characterInfo, setCharacterInfo] = useState([])
+
+  useEffect(() => {
+    fetchData()
+    .then(data => getCharacterInfo(data))
+    .then(data => setCharacterInfo(data))
+    //.then(data => changeBackground(characterInfo))
+  }, []);
+  //console.log('HELLO', characterInfo)
 
 	//Sorting function
 	const answerHandler = (morty, rick, jerry, summer) => {
@@ -47,27 +57,26 @@ export default function App() {
 		const nextQuestion = currentQuestion + 1;
 		if (nextQuestion < questions.length + 1) {
 			setCurrentQuestion(nextQuestion);
-		} else {
-			setShowCharacter(true);
-
 		}
 	};
 
-	const [banner, setBanner] = useState('')
-	const changeBackground = () => {
-		if (character === 'Morty' && showCharacter===true) {
-			setBanner(require("./assets/banners/Morty.jpeg"));}
-		if (character === 'Rick' && showCharacter===true) {
-			setBanner(require("./assets/banners/Rick.jpeg"));}
-		if (character === 'Jerry' && showCharacter===true) {
-			setBanner(require("./assets/banners/Jerry.jpeg"));}
-		if (character === 'Summer' && showCharacter===true) {
-			setBanner(require("./assets/banners/Summer.jpeg"));}
+  const findImage = () => {
+		const winningCharacter = characterInfo.find((object) => {
+    return object.name.includes(character)
+  })
+	return winningCharacter.image
+}
+	const changeBackground = (name) => {
+		if (name === 'Morty Smith' && showCharacter===true) {
+			setBanner(findImage());}
+		if (name === 'Rick Sanchez' && showCharacter===true) {
+			setBanner(findImage());}
+		if (name === 'Jerry Smith' && showCharacter===true) {
+			setBanner(findImage());}
+		if (name === 'Summer Smith' && showCharacter===true) {
+			setBanner(findImage());}
 	};
 	//Always check which character has most points in order to reveal the respective banner
-	useEffect(() => {
-		changeBackground()
-	});
 //^^^^^This isn't working....why???
 
   const clearState = () => {
@@ -77,15 +86,13 @@ export default function App() {
     setJerry(0);
     setSummer(0);
     setCharacter('Beth');
-    setShowQuiz(false);
+    //setShowQuiz(false);
     setShowCharacter(false);
     setBanner('');
   }
 return (
   <main>
-  <div className='main-title'>Which Rick & Morty Character is Your Cat?</div>
-  	<div className='app' style={{borderRadius:'7px', backgroundPosition: '50%', backgroundBlendMode:'normal', backgroundImage: `url(${banner})`}}>
-    </div>
+  <header className='main-title'>Which Rick & Morty Character is Your Cat?</header>
     <Route exact path='/'>
     <div className='intro-part'>
     					<div className='intro-text'>
@@ -98,53 +105,7 @@ return (
     <HomeQuiz currentQuestion={currentQuestion} answerHandler={answerHandler} showCharacter={showCharacter}/>
     </Route>
     <Route exact path='/Results'>
-    <Results character={character} setShowQuiz={setShowQuiz} clearState={clearState} setShowCharacter={setShowCharacter}/>
+    <Results character={character} findImage={findImage} clearState={clearState} setShowCharacter={setShowCharacter}/>
     </Route>
   </main>
 )}
-	// return (
-	// 	<main>
-// 		<div className='main-title'>Which Rick & Morty Character is Your Cat?</div>
-// 		<div className='app' style={{borderRadius:'7px', backgroundPosition: '50%', backgroundBlendMode:'normal', backgroundImage: `url(${banner})`}}>
-// 			{showQuiz ? (
-// 			<div>
-// 			{showCharacter ? (
-// 				<div className='score-section'>
-// 					Your cat is
-// 					<br/>
-// 					<p className='character'>{character}</p>
-//           <button className='return' onClick={() => setShowQuiz(false)} onClick={clearState}>Take Quiz Again!</button>
-// 				</div>
-//
-// 			) : (
-// 				<>
-// 				<div className='part-two'>
-// 					<div className='question-section'>
-// 						<div className='question-count'>
-// 							<span>Question {currentQuestion + 1}</span>/{questions.length}
-// 						</div>
-// 						<div className='question-text'>{questions[currentQuestion].questionText}</div>
-// 					</div>
-// 					<div className='answer-section'>
-// 						{questions[currentQuestion].options.map((option) => (
-// 							<button onClick={() => {answerHandler(option.Morty, option.Rick, option.Jerry, option.Summer);}}>{option.optionText}</button>
-// 						))}
-// 					</div>
-// 				</div>
-//
-// 				</>
-// 			)} </div>
-// 		) : (
-// 		<>
-// 				<div className='intro-part'>
-// 					<div className='intro-text'>
-// 						You might think you know your cat well but do you really? Take this quiz to find out which character your cat could replace on the TV show Rick & Morty!
-// 					</div>
-// 					<button className='start-button button-loader' onClick={() => setShowQuiz(true)}>Start</button>
-// 				</div>
-// 		</>
-// 		)}
-// 		</div>
-// 		</main>
-// 	);
-// }
