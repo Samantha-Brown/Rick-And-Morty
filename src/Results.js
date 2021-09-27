@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import './Results.css'
-s
+
 const Results = ( { character, findImage, clearState, setShowCharacter} ) => {
   useEffect(() => {
     setShowCharacter(true)
