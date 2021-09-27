@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { questions } from './data/Questions.js';
 import { fetchData } from './apiCalls';
 import { Route, Link } from 'react-router-dom';
+import Results from './Results';
+import HomeQuiz from './HomeQuiz';
 // import Error from './Error';
 
 
@@ -25,7 +27,6 @@ export default function App() {
 	const answerHandler = (morty, rick, jerry, summer) => {
     		setMorty(totalMorty + morty);
     		setRick(totalRick + rick);
-        console.log(totalRick)
     		setJerry(totalJerry + jerry);
     		setSummer(totalSummer + summer);
 
@@ -47,6 +48,7 @@ export default function App() {
 			setCurrentQuestion(nextQuestion);
 		} else {
 			setShowCharacter(true);
+
 		}
 	};
 
@@ -65,9 +67,20 @@ export default function App() {
 	useEffect(() => {
 		changeBackground()
 	});
+//^^^^^This isn't working....why???
+
+  const clearState = () => {
+    setCurrentQuestion(0);
+    setMorty(0);
+    setRick(0);
+    setJerry(0);
+    setSummer(0);
+    setShowQuiz(false)
+    setShowCharacter(false);
+  }
 
 	return (
-		<div>
+		<main>
 		<div className='main-title'>Which Rick & Morty Character is Your Cat?</div>
 		<div className='app' style={{borderRadius:'7px', backgroundPosition: '50%', backgroundBlendMode:'normal', backgroundImage: `url(${banner})`}}>
 			{showQuiz ? (
@@ -77,7 +90,7 @@ export default function App() {
 					Your cat is
 					<br/>
 					<p className='character'>{character}</p>
-          <button className='return' onClick={() => setShowQuiz(false)}>Take Quiz Again!</button>
+          <button className='return' onClick={() => setShowQuiz(false)} onClick={clearState}>Take Quiz Again!</button>
 				</div>
 
 			) : (
@@ -109,6 +122,6 @@ export default function App() {
 		</>
 		)}
 		</div>
-		</div>
+		</main>
 	);
 }
