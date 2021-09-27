@@ -45,7 +45,7 @@ export default function App() {
     		};
 
 		const nextQuestion = currentQuestion + 1;
-		if (nextQuestion < questions.length) {
+		if (nextQuestion < questions.length + 1) {
 			setCurrentQuestion(nextQuestion);
 		} else {
 			setShowCharacter(true);
@@ -95,7 +95,10 @@ return (
     				</div>
     </Route>
     <Route exact path='/HomeQuiz'>
-    <HomeQuiz currentQuestion={currentQuestion} answerHandler={answerHandler}/>
+    <HomeQuiz currentQuestion={currentQuestion} answerHandler={answerHandler} showCharacter={showCharacter}/>
+    </Route>
+    <Route exact path='/Results'>
+    <Results character={character} setShowQuiz={setShowQuiz} clearState={clearState} setShowCharacter={setShowCharacter}/>
     </Route>
   </main>
 )}
