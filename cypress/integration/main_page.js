@@ -11,6 +11,10 @@ describe('User flows via main page', () => {
     cy.get('header')
   });
 
+    it('Should display quiz introduction text', () => {
+      cy.get('.intro-text')
+    })
+
     it('Should be able to click on start button and page updates URL and displays questions', () => {
         cy.get('.start-button').click()
         cy.url().should('not.eq', 'http://localhost:3000')
