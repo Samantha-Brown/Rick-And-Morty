@@ -16,7 +16,6 @@ The goal of this Mod3 Final Project [project](https://frontend.turing.edu/projec
 ## Deployed App 
 
 - [Which Rick & Morty Character is Your Cat?](https://rickandmorty-deploy.herokuapp.com/) - a personality quiz
-- [Strange Prompts API](https://github.com/rachelJensen/strange-prompts-api)
 
 ## See It In Action
 
