@@ -5,8 +5,6 @@ import { Route, Link } from 'react-router-dom';
 import Results from './Results';
 import HomeQuiz from './HomeQuiz';
 import { getCharacterInfo } from './util';
-// import Error from './Error';
-
 
 
 export default function App() {
