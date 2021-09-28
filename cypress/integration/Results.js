@@ -2,11 +2,12 @@ describe('User flows via results page', () => {
   beforeEach(() => {
     cy.intercept('GET', 'https://rickandmortyapi.com/api/character', {
       statusCode: 201,
-      body: [{
+      body: {
         name: 'Rick',
         image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
-      }]
+      }
     })
+    cy.wait(1500)
     cy.visit('http://localhost:3000/Results')
   });
 

@@ -15,8 +15,8 @@ describe('User flows via main page', () => {
       cy.get('.intro-text')
     })
 
-    it('Should be able to click on start button and page updates URL and displays questions', () => {
-        cy.get('.start-button').click()
-        cy.url().should('not.eq', 'http://localhost:3000')
+    it('Should be able to click on answer and next question displays', () => {
+        cy.get('.answer-section').click()
+        cy.url().should('not.eq', 'http://localhost:3000/HomeQuiz')
     });
 })
