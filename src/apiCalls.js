@@ -6,7 +6,6 @@ export const fetchData = async () => {
     throw new Error('Your cat doesn\'t belong on this show')
   }
   let character = await response.json();
-  console.log(character)
 
   return character
 }
