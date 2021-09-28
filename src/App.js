@@ -12,27 +12,22 @@ import { getCharacterInfo } from './util';
 export default function App() {
 	const [currentQuestion, setCurrentQuestion] = useState(0);
 
-	// Total score per character setters
 	const [totalMorty, setMorty] = useState(0);
 	const [totalRick, setRick] = useState(0);
 	const [totalJerry, setJerry] = useState(0);
 	const [totalSummer, setSummer] = useState(0);
 
-	//Final result setter
 	const [character, setCharacter] = useState("Beth");
 
-	//const [showQuiz, setShowQuiz] = useState(false);
 	const [showCharacter, setShowCharacter] = useState(false);
-  const [banner, setBanner] = useState('')
   const [characterInfo, setCharacterInfo] = useState([])
 
   useEffect(() => {
     fetchData()
     .then(data => getCharacterInfo(data))
     .then(data => setCharacterInfo(data))
-    //.then(data => changeBackground(characterInfo))
   }, []);
-  //console.log('HELLO', characterInfo)
+
 
 	//Sorting function
 	const answerHandler = (morty, rick, jerry, summer) => {
@@ -66,18 +61,6 @@ export default function App() {
   })
 	return winningCharacter.image
 }
-	const changeBackground = (name) => {
-		if (name === 'Morty Smith' && showCharacter===true) {
-			setBanner(findImage());}
-		if (name === 'Rick Sanchez' && showCharacter===true) {
-			setBanner(findImage());}
-		if (name === 'Jerry Smith' && showCharacter===true) {
-			setBanner(findImage());}
-		if (name === 'Summer Smith' && showCharacter===true) {
-			setBanner(findImage());}
-	};
-	//Always check which character has most points in order to reveal the respective banner
-//^^^^^This isn't working....why???
 
   const clearState = () => {
     setCurrentQuestion(0);
@@ -86,9 +69,7 @@ export default function App() {
     setJerry(0);
     setSummer(0);
     setCharacter('Beth');
-    //setShowQuiz(false);
     setShowCharacter(false);
-    setBanner('');
   }
 return (
   <main>
