@@ -19,8 +19,7 @@ The goal of this Mod3 Final Project [project](https://frontend.turing.edu/projec
 
 ## See It In Action
 
-
-
+![recording (5)](https://user-images.githubusercontent.com/79541611/135016494-10098ec6-78b0-437e-b91b-e6add290b7fd.gif)
 
 ### Learning Goals
 
