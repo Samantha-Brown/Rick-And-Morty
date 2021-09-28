@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { Redirect, Link } from 'react-router-dom';
+import React from 'react';
+import { Redirect } from 'react-router-dom';
 import { questions } from './data/Questions.js';
 
 import './HomeQuiz.css'
 
 const HomeQuiz = ( {currentQuestion, answerHandler, showCharacter }) => {
   return(
-    <div classname='app'>
+    <div className='app'>
     <div className='part-two'>
           {currentQuestion < 4 && <div>
 					<div className='question-section'>
