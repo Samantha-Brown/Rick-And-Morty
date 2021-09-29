@@ -17,7 +17,7 @@ const HomeQuiz = ( {currentQuestion, answerHandler, showCharacter }) => {
 					</div>
 					<div className='answer-section'>
 						{questions[currentQuestion].options.map((option) => (
-							<button onClick={() => {answerHandler(option.Morty, option.Rick, option.Jerry, option.Summer);}}>{option.optionText}</button>
+							<button className='questions' onClick={() => {answerHandler(option.Morty, option.Rick, option.Jerry, option.Summer);}}>{option.optionText}</button>
 						))}
 					</div> </div> }
           {currentQuestion === 4 && <Redirect to='/Results'/>}
