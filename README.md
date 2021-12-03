@@ -40,6 +40,7 @@ The goal of this Mod3 Final Project [project](https://frontend.turing.edu/projec
 
 - Add login so individual users can share their results
 - Add additional questions to quiz
+- Improve CSS responsiveness 
 
 ## Contributors
 - [Samantha Brown](https://github.com/Samantha-Brown)
